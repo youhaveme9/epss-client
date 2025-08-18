@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epss-client"
+version = "0.1.0"
+description = "Typed Python client and CLI for FIRST EPSS (Exploit Prediction Scoring System) API"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+  { name = "Roshan Kumar", email = "roshaen09@gmail.com" }
+]
+license = { text = "MIT" }
+dependencies = [
+  "requests>=2.28.0,<3.0.0",
+]
+keywords = ["EPSS", "FIRST", "CVE", "security", "vulnerabilities", "api", "client"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/youhaveme9/epss-client"
+Repository = "https://github.com/youhaveme9/epss-client"
+Issues = "https://github.com/youhaveme9/epss-client/issues"
+Documentation = "https://api.first.org/epss"
+
+[project.optional-dependencies]
+test = [
+  "pytest>=7.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"epss_client" = ["py.typed"]
+
+[project.scripts]
+epss = "epss_client.cli:main"
