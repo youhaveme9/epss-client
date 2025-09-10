@@ -1,0 +1,55 @@
+# EPSS Client Cache Configuration Example
+# Save this as ~/.epss/config.yaml or epss.yaml in your project directory
+
+cache:
+  # Enable caching
+  enabled: true
+  
+  # Cache backend: redis, database, or file
+  backend: file
+  
+  # Default TTL in seconds (1 hour)
+  ttl: 3600
+  
+  # Key prefix for cache entries
+  key_prefix: epss
+  
+  # Enable compression for cached data
+  compression: true
+  
+  # Serialization format: json or pickle
+  serialize_format: json
+
+  # Redis configuration (used when backend: redis)
+  redis:
+    host: localhost
+    port: 6379
+    db: 0
+    password: null
+    socket_timeout: 5.0
+    socket_connect_timeout: 5.0
+    max_connections: 10
+
+  # Database configuration (used when backend: database)
+  database:
+    # SQLite example
+    url: "sqlite:///~/.cache/epss/cache.db"
+    # PostgreSQL example:
+    # url: "postgresql://user:pass@localhost/epss_cache"
+    # MySQL example:
+    # url: "mysql://user:pass@localhost/epss_cache"
+    table_name: epss_cache
+    pool_size: 5
+    max_overflow: 10
+    pool_timeout: 30
+
+  # File cache configuration (used when backend: file)
+  file:
+    # Cache directory
+    directory: "~/.cache/epss"
+    # Maximum cache size in MB
+    max_size_mb: 100
+    # Enable compression
+    compression: true
+    # Storage format: json or pickle
+    format: json

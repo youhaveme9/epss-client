@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "epss-client"
-version = "0.1.0"
+version = "2.0.0"
 description = "Typed Python client and CLI for FIRST EPSS (Exploit Prediction Scoring System) API"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -43,6 +43,25 @@ Documentation = "https://api.first.org/epss"
 [project.optional-dependencies]
 test = [
   "pytest>=7.0",
+]
+cache-redis = [
+  "redis>=4.0.0",
+  "hiredis>=2.0.0",
+]
+cache-db = [
+  "sqlalchemy>=2.0.0",
+  "alembic>=1.8.0",
+]
+cache-full = [
+  "redis>=4.0.0",
+  "hiredis>=2.0.0", 
+  "sqlalchemy>=2.0.0",
+  "alembic>=1.8.0",
+  "pyyaml>=6.0",
+]
+config = [
+  "pyyaml>=6.0",
+  "toml>=0.10.0",
 ]
 
 [tool.setuptools.packages.find]
